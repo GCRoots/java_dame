@@ -18,7 +18,6 @@
             <groupId>io.grpc</groupId>
             <artifactId>grpc-all</artifactId>
             <version>1.12.0</version>
-
         </dependency>
     </dependencies>
 
@@ -59,5 +58,5 @@
             </plugin>
         </plugins>
     </build>
-    
+
 </project>

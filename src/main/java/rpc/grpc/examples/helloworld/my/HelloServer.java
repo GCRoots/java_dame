@@ -1,8 +1,11 @@
-package rpc.grpc.examples.helloworld;
+package rpc.grpc.examples.helloworld.my;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import rpc.grpc.examples.helloworld.GreeterGrpc;
+import rpc.grpc.examples.helloworld.HelloReply;
+import rpc.grpc.examples.helloworld.HelloRequest;
 
 import java.io.IOException;
 import java.util.logging.Logger;

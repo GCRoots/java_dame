@@ -29,8 +29,16 @@ public class OSSDame {
         String urls=OSSDame.getURL("easyarch-w",p);
         System.out.println(OSSDame.getURL("easyarch-w",p));
 
-        HashMap hashMap = JSON.parseObject(urls, HashMap.class);
-        System.out.println(hashMap);
+        Map map = new HashMap();
+
+        if (null != urls) {
+            String[] param = urls.split(";");
+            for (int i = 0; i < param.length; i++) {
+                int index = param[i].indexOf('=');
+                map.put(param[i].substring(0,index), param[i].substring((index + 1)));
+            }
+        }
+        System.out.println(map);
 
     }
 

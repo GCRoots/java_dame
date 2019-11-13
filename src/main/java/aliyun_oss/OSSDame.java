@@ -1,12 +1,15 @@
 package aliyun_oss;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.support.hsf.HSFJSONUtils;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.GetObjectRequest;
 import com.aliyun.oss.model.ListObjectsRequest;
 import com.aliyun.oss.model.OSSObjectSummary;
 import com.aliyun.oss.model.ObjectListing;
+import com.google.gson.JsonNull;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -27,18 +30,7 @@ public class OSSDame {
         System.out.println(date);
 
         String urls=OSSDame.getURL("easyarch-w",p);
-        System.out.println(OSSDame.getURL("easyarch-w",p));
-
-        Map map = new HashMap();
-
-        if (null != urls) {
-            String[] param = urls.split(";");
-            for (int i = 0; i < param.length; i++) {
-                int index = param[i].indexOf('=');
-                map.put(param[i].substring(0,index), param[i].substring((index + 1)));
-            }
-        }
-        System.out.println(map);
+        System.out.println(urls);
 
     }
 
@@ -109,7 +101,10 @@ public class OSSDame {
         // 关闭OSSClient。
         ossClient.shutdown();
 
-        return urls.toString();
+        // map中含有对象Map -> JSON
+        String json=JSON.toJSONString(urls,true);
+
+        return json;
     }
 
 }

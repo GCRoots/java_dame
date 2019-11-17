@@ -5,15 +5,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.hsf.HSFJSONUtils;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClient;
-import com.aliyun.oss.model.GetObjectRequest;
-import com.aliyun.oss.model.ListObjectsRequest;
-import com.aliyun.oss.model.OSSObjectSummary;
-import com.aliyun.oss.model.ObjectListing;
+import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.model.*;
 import com.google.gson.JsonNull;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 
 /**
@@ -22,15 +21,17 @@ import java.util.*;
  */
 public class OSSDame {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
 
-        String p="artistic/artistic_Jony/teacher_Tom/20191112/video/";
+//        String p="artistic/artistic_Jony/teacher_Tom/20191112/video/";
+//
+//        Date date=new Date(System.currentTimeMillis() + 3600L * 1000 * 24 * 365 * 10);
+//        System.out.println(date);
+//
+//        String urls=OSSDame.getURL("easyarch-w",p);
+//        System.out.println(urls);
 
-        Date date=new Date(System.currentTimeMillis() + 3600L * 1000 * 24 * 365 * 10);
-        System.out.println(date);
-
-        String urls=OSSDame.getURL("easyarch-w",p);
-        System.out.println(urls);
+        OSSDame.getDATE();
 
     }
 
@@ -106,5 +107,39 @@ public class OSSDame {
 
         return json;
     }
+
+    public static void getDATE() throws ParseException {
+        String endpoint = "http://oss-cn-beijing.aliyuncs.com";
+
+        // 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。
+        // 强烈建议您创建并使用RAM账号进行API访问或日常运维。
+        // 请登录 https://ram.console.aliyun.com 创建RAM账号。
+        String accessKeyId = "LTAI4FnMcpJZp5GHxexUq5EV";
+        String accessKeySecret = "zwM6UWgidMRPu5EOx4AFdX4vYB9UhG";
+        String bucketName = "easyarch-w";
+        String objectName = "artistic/artistic_Jony/teacher_Tom/20191112/video/conf.json";
+
+        // 创建OSSClient实例。
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+
+        // 获取文件的部分元信息。
+        SimplifiedObjectMeta objectMeta = ossClient.getSimplifiedObjectMeta("<yourBucketName>", "<yourObjectName>");
+        System.out.println(objectMeta.getSize());
+        System.out.println(objectMeta.getETag());
+        System.out.println(objectMeta.getLastModified());
+
+
+        // 获取文件的全部元信息。
+        ObjectMetadata metadata = ossClient.getObjectMetadata("<yourBucketName>", "<yourObjectName>");
+        System.out.println(metadata.getContentType());
+        System.out.println(metadata.getLastModified());
+        System.out.println(metadata.getExpirationTime());
+
+
+        // 关闭OSSClient。
+        ossClient.shutdown();
+
+    }
+
 
 }

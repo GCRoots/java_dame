@@ -43,6 +43,7 @@ public class ManualFlowControlClient {
         .forAddress("localhost", 50051)
         .usePlaintext()
         .build();
+
     StreamingGreeterGrpc.StreamingGreeterStub stub = StreamingGreeterGrpc.newStub(channel);
 
     // When using manual flow-control and back-pressure on the client, the ClientResponseObserver handles both

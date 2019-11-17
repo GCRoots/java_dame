@@ -123,17 +123,19 @@ public class OSSDame {
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
 
         // 获取文件的部分元信息。
-        SimplifiedObjectMeta objectMeta = ossClient.getSimplifiedObjectMeta("<yourBucketName>", "<yourObjectName>");
-        System.out.println(objectMeta.getSize());
-        System.out.println(objectMeta.getETag());
-        System.out.println(objectMeta.getLastModified());
+        SimplifiedObjectMeta objectMeta = ossClient.getSimplifiedObjectMeta(bucketName, objectName);
+        System.out.println("Size:"+objectMeta.getSize());
+        System.out.println("ETag:"+objectMeta.getETag());
+        System.out.println("LastModified:"+objectMeta.getLastModified());
+        System.out.println(objectMeta.toString());
 
 
         // 获取文件的全部元信息。
-        ObjectMetadata metadata = ossClient.getObjectMetadata("<yourBucketName>", "<yourObjectName>");
-        System.out.println(metadata.getContentType());
-        System.out.println(metadata.getLastModified());
-        System.out.println(metadata.getExpirationTime());
+        ObjectMetadata metadata = ossClient.getObjectMetadata(bucketName, objectName);
+        System.out.println("ContentType:"+metadata.getContentType());
+        System.out.println("LastModified:"+metadata.getLastModified());
+        System.out.println("ExpirationTime:"+metadata.getExpirationTime());
+        System.out.println(metadata.toString());
 
 
         // 关闭OSSClient。

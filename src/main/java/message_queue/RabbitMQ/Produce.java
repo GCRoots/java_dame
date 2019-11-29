@@ -25,8 +25,8 @@ public class Produce {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("127.0.0.1");
         factory.setPort(AMQP.PROTOCOL.PORT);    // 5672
-        factory.setUsername("mengday");
-        factory.setPassword("mengday");
+        factory.setUsername("admin");
+        factory.setPassword("admin");
 
         // 新建一个长连接
         Connection connection = factory.newConnection();
@@ -35,7 +35,7 @@ public class Produce {
         Channel channel = connection.createChannel();
 
         // 声明一个队列
-        String QUEUE_NAME = "heelo";
+        String QUEUE_NAME = "hello";
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
         // 发送消息到队列中

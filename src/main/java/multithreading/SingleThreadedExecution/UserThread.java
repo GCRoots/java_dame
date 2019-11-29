@@ -1,4 +1,4 @@
-package multithreading.SingleThreadedExecution.gateDame;
+package multithreading.SingleThreadedExecution;
 
 /**
  * @author shipengfei

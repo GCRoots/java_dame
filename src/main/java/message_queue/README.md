@@ -10,3 +10,4 @@
 
   ProduceConsumeDemo：测试类
 
+- RabbitMQ

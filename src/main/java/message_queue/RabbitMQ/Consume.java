@@ -21,8 +21,8 @@ public class Consume {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("127.0.0.1");
         factory.setPort(AMQP.PROTOCOL.PORT);    // 5672
-        factory.setUsername("mengday");
-        factory.setPassword("mengday");
+        factory.setUsername("admin");
+        factory.setPassword("admin");
 
         // 新建一个长连接
         Connection connection = factory.newConnection();

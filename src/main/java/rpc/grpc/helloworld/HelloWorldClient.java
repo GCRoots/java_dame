@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package rpc.grpc.examples.helloworld;
+package rpc.grpc.helloworld;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;

@@ -1,11 +1,11 @@
-package rpc.grpc.examples.helloworld.my;
+package rpc.grpc.helloworld.my;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
-import rpc.grpc.examples.helloworld.GreeterGrpc;
-import rpc.grpc.examples.helloworld.HelloReply;
-import rpc.grpc.examples.helloworld.HelloRequest;
+import rpc.grpc.helloworld.GreeterGrpc;
+import rpc.grpc.helloworld.HelloReply;
+import rpc.grpc.helloworld.HelloRequest;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;

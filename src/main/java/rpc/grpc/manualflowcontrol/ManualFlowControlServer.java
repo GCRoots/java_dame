@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package rpc.grpc.examples.manualflowcontrol;
+package rpc.grpc.manualflowcontrol;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

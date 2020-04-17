@@ -57,7 +57,7 @@ public class OSSDame {
         }
         file.createNewFile();
         // 下载OSS文件到本地文件。如果指定的本地文件存在会覆盖，不存在则新建。
-        ossClient.getObject(new GetObjectRequest("easyarch-w",objectName ), file);
+        ossClient.getObject(new GetObjectRequest("",objectName ), file);
 
         // 关闭OSSClient。
         ossClient.shutdown();
@@ -72,8 +72,8 @@ public class OSSDame {
         // 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。
         // 强烈建议您创建并使用RAM账号进行API访问或日常运维。
         // 请登录 https://ram.console.aliyun.com 创建RAM账号。
-        String accessKeyId = "LTAI4FnMcpJZp5GHxexUq5EV";
-        String accessKeySecret = "zwM6UWgidMRPu5EOx4AFdX4vYB9UhG";
+        String accessKeyId = "";
+        String accessKeySecret = "";
 
         // 创建OSSClient实例。
         OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
